@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Pagos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Gestor de Pagos Diarios</h1>
+    <h2>Por lorenzo valencia</h2>
+
+   <nav id="main-nav">
+    <button id="show-register-btn" class="nav-btn active">Registrar Cliente</button>
+    <button id="show-list-btn" class="nav-btn">Lista de Clientes</button>
+    <button id="show-inventory-btn" class="nav-btn">Inventario</button>
+</nav>
+    
+    <div id="register-section" class="page-section">
+        <div class="container" id="registration-container">
+            <h2>Registrar Nuevo Cliente</h2>
+            <form id="client-form">
+                <div class="form-group">
+                    <label for="client-name">Nombre del Cliente:</label>
+                    <input type="text" id="client-name" name="client-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment-plan">Plan de Pagos:</label>
+                    <select id="payment-plan" name="payment-plan">
+                        <option value="1">Plan 1</option>
+                        <option value="2">Plan 2</option>
+                        <option value="3">Plan 3</option>
+                        <option value="4">Plan 4</option>
+                        <option value="5">Plan 5</option>
+                    </select>
+                <div class="form-group">
+    <label for="start-date">Fecha de Inicio:</label>
+    <input type="date" id="start-date" name="start-date" required>
+</div>
+                </div>
+                
+                <input type="hidden" id="client-index" name="client-index">
+                <button type="submit">Registrar Cliente</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="list-section" class="page-section hidden">
+        <div class="container" id="client-list-container">
+            <h2>Clientes Registrados</h2>
+            <ul id="client-list">
+                </ul>
+        </div>
+    </div>
+
+   <div id="inventory-section" class="page-section hidden">
+    <div class="container" id="inventory-container">
+    <h2>Resumen Financiero</h2>
+    <div id="financial-summary">
+        <div id="financial-summary-header">
+            <span>Cliente</span>
+            <span>Pagado</span>
+            <span>Total a Pagar</span>
+            <span>Monto Final</span>
+        </div>
+        <ul id="inventory-list">
+            </ul>
+    </div>
+    <hr>
+    <div id="global-summary">
+        <p><strong>Total pagado por todos:</strong> <span id="total-paid-global">$0.00</span></p>
+        <p><strong>Total final a recibir:</strong> <span id="total-final-global">$0.00</span></p>
+    </div>
+</div>
+</div>
+</div>
+    
+    <div id="details-section" class="page-section hidden">
+        <div class="container" id="client-details-container">
+            <button id="back-to-list-btn">← Volver a la lista</button>
+            <h2 id="details-client-name"></h2>
+            
+            <div class="summary">
+                <p><strong>Plan de Pagos:</strong> <span id="details-plan"></span></p>
+                <p><strong>Total de Pagos:</strong> <span id="details-total-payments"></span></p>
+                <p><strong>Total pagado:</strong> <span id="details-paid-amount"></span></p>
+                <p><strong>Total por pagar:</strong> <span id="details-remaining-amount"></span></p>
+                <p><strong>Comisión Total:</strong> <span id="details-total-commission"></span></p>
+                <p><strong>Monto a Entregar:</strong> <span id="details-final-amount"></span></p>
+            </div>
+    
+            <div class="payment-list-section">
+                <h3>Lista de Pagos</h3>
+                <p class="summary-line">Total a Pagar Seleccionado: <span id="amount-to-pay">$0.00</span></p>
+                <ul id="details-payment-list">
+                    </ul>
+                <button id="accept-payment-btn">Aceptar Pago</button>
+                <button id="generate-ticket-btn" class="hidden">Generar Ticket</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-container" class="notification-container">
+        <div id="notification-message" class="notification-message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
